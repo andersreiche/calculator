@@ -12,11 +12,16 @@
 
 	void compute(string input) {
 
+		// Locate a + operator and identify the numbers on each side of it
 		size_t found = input.find('+');
 		if (found != string::npos) {
-			cout << "found operator at position:  " << found << endl;
-			cout << "left hand side: " << input.substr(0,found) << endl;
-			cout << "right hand side: " << input.substr(found +1) << endl;
+			string LeftHandSide = input.substr(0,found);
+			string RightHandSide = input.substr(found +1);
+
+			int lhs = atoi(LeftHandSide.c_str());
+			int rhs = atoi(RightHandSide.c_str());
+
+			cout << lhs << " + " << rhs << " = " << lhs + rhs << endl;
 
 		}
 	}
