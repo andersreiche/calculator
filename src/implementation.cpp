@@ -10,7 +10,7 @@
 	}
 
 
-	void compute(string input) {
+	int compute(string input) {
 
 		// Locate a + operator and identify the numbers on each side of it
 		size_t found = input.find('+');
@@ -22,6 +22,7 @@
 			int rhs = atoi(RightHandSide.c_str());
 
 			cout << lhs << " + " << rhs << " = " << lhs + rhs << endl;
-
+			return (lhs + rhs);
 		}
+		return (NULL);
 	}

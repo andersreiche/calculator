@@ -9,11 +9,18 @@
 
 int main() {
 	cout << "Calculator learning project by Anders Reiche " << endl;
-	string input = getinput();
+	cout << "type \"exit\" to end the program" << endl;
+	string input = "";
+	while (input != "exit") {
+		input = getinput();
+		int result = 0;
+		result = compute(input);
 
-	compute(input);
+		if (input != "exit" && result == NULL) {
+			cout << "Invalid syntax" << endl;
+		}
 
-
-
+	}
+	cout << "bye!" << endl;
 	return (0);
 }
