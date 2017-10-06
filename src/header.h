@@ -12,7 +12,7 @@
 using namespace std;
 
 	string getinput();
-
+	void compute(string input);
 
 
 

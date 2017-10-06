@@ -11,7 +11,7 @@ int main() {
 	cout << "Calculator learning project by Anders Reiche " << endl;
 	string input = getinput();
 
-	cout << input << endl;
+	compute(input);
 
 
 

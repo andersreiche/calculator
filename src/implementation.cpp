@@ -10,4 +10,13 @@
 	}
 
 
+	void compute(string input) {
 
+		size_t found = input.find('+');
+		if (found != string::npos) {
+			cout << "found operator at position:  " << found << endl;
+			cout << "left hand side: " << input.substr(0,found) << endl;
+			cout << "right hand side: " << input.substr(found +1) << endl;
+
+		}
+	}
