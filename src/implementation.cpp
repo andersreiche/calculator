@@ -22,7 +22,7 @@
 			int rhs = atoi(RightHandSide.c_str());
 
 			cout << lhs << " + " << rhs << " = " << lhs + rhs << endl;
-			return (lhs + rhs);
+			return (0);
 		}
-		return (NULL);
+		return (-1);
 	}
