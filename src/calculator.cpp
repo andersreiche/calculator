@@ -21,7 +21,7 @@ int main() {
 		if (input != "exit" && SyntaxChecker == 0) {
 			cout << "Invalid syntax" << endl;
 		}
-	}
+	} 
 
 
 	cout << "bye!" << endl;
