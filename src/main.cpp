@@ -5,23 +5,21 @@
 // Copyright   : Open source
 // Description :
 //============================================================================
-#include "header.h"
+
 #include "calculator.h"
 calculator calc;
 int main() {
-	cout << "Calculator learning project by Anders Reiche " << endl;
-	cout << "type \"exit\" to end the program" << endl;
-	string input = "";
+	cout << "\n\n	Calculator learning project by Anders Reiche " << endl;
+	cout << "		type \"exit\" to end the program" << endl;
 
-	while (input != "exit") {
-		calc.getinput();
-		calc.SyntaxChecker = calc.compute(input);
+	while (calc.getinput() == true) {
+		cout << calc.input << " = " <<calc.resolveOperator(calc.input) << endl;
 
-		if (input != "exit" && calc.SyntaxChecker == 0) {
+		if (calc.SyntaxChecker == false) {
 			cout << "Invalid syntax" << endl;
 		}
 	}
 
-	cout << "bye!" << endl;
+
 	return (0);
 }

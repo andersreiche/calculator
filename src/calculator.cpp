@@ -1,5 +1,12 @@
 #include "calculator.h"
 
+template<typename T>
+std::string NumberToString(T Number) {
+	std::ostringstream s;
+	s << Number;
+	return (s.str());
+}
+
 calculator::calculator() {
 	input = "";
 	temporary = "";
@@ -8,36 +15,138 @@ calculator::calculator() {
 }
 
 calculator::~calculator() {
-	// TODO Auto-generated destructor stub
+	cout << "\n\n					bye!\n\n";
 }
 
 // to make input more general, the input function should remove spaces
-void calculator::getinput() {
+bool calculator::getinput() {
 	getline(cin, input);
-	boost::algorithm::erase_all(input, " "); // removes all spaces in input string
+	mainstring = input;
+	boost::algorithm::erase_all(mainstring, " "); // removes all spaces in input string
+	if (input == "exit")
+		return (false);
+	return (true);
 }
 
-int calculator::compute(string input) {
-	// TODO this function should take a string with a single operator and two numbers and resolve them and return their value as a string
-
-	// Locate a + operator and identify the numbers on each side of it
-	size_t found = input.find('+');
-	if (found != string::npos) {
-		string LeftHandSide = input.substr(0, found);
-		string RightHandSide = input.substr(found + 1);
-
-		int lhs = atoi(LeftHandSide.c_str());
-		int rhs = atoi(RightHandSide.c_str());
-
-		cout << lhs << " + " << rhs << " = " << lhs + rhs << endl;
-		return (0);
-	}
-	return (-1);
-}
-
-string calculator::resolveOperator(string input) {
-	string output = "";
+void calculator::snip(string mainstring) {
 	// TODO this function should take a string containing operators and numbers, then use PEMDAS rules to cut out a single operator surrounded by two numbers and return it
 
-	return (output);
+	//// MULTIPLY ////
+	{
+		size_t found = mainstring.find('*');
+		if (found != string::npos) {
+			string LeftHandSide = mainstring.substr(0, found);
+			string RightHandSide = mainstring.substr(found + 1);
+
+			double lhs = atoi(LeftHandSide.c_str());
+			double rhs = atoi(RightHandSide.c_str());
+
+			temporary = NumberToString(lhs * rhs);
+			return;
+		}
+	}
+	{
+		//// DIVIDE ////
+		size_t found = mainstring.find('/');
+		if (found != string::npos) {
+			string LeftHandSide = mainstring.substr(0, found);
+			string RightHandSide = mainstring.substr(found + 1);
+
+			double lhs = atoi(LeftHandSide.c_str());
+			double rhs = atoi(RightHandSide.c_str());
+
+			temporary = NumberToString(lhs / rhs);
+			return;
+		}
+	}
+	{
+		//// ADD ////
+		size_t found = mainstring.find('+');
+		if (found != string::npos) {
+			string LeftHandSide = mainstring.substr(0, found);
+			string RightHandSide = mainstring.substr(found + 1);
+
+			double lhs = atoi(LeftHandSide.c_str());
+			double rhs = atoi(RightHandSide.c_str());
+
+			temporary = NumberToString(lhs + rhs);
+			return;
+		}
+	}
+	{
+		//// SUBTRACT ////
+		size_t found = mainstring.find('-');
+		if (found != string::npos) {
+			string LeftHandSide = mainstring.substr(0, found);
+			string RightHandSide = mainstring.substr(found + 1);
+
+			double lhs = atoi(LeftHandSide.c_str());
+			double rhs = atoi(RightHandSide.c_str());
+
+			temporary = NumberToString(lhs - rhs);
+			return;
+		}
+	}
+}
+
+string calculator::resolveOperator(string mainstring) {
+	string output = "";
+
+	{	//// ADD ////
+		size_t found = mainstring.find('+');
+		if (found != string::npos) {
+			string LeftHandSide = mainstring.substr(0, found);
+			string RightHandSide = mainstring.substr(found + 1);
+
+			double lhs = atoi(LeftHandSide.c_str());
+			double rhs = atoi(RightHandSide.c_str());
+
+			output = NumberToString(lhs + rhs);
+			return (output);
+		}
+	}
+	{	//// SUBTRACT ////
+		size_t found = mainstring.find('-');
+		if (found != string::npos) {
+			string LeftHandSide = mainstring.substr(0, found);
+			string RightHandSide = mainstring.substr(found + 1);
+
+			double lhs = atoi(LeftHandSide.c_str());
+			double rhs = atoi(RightHandSide.c_str());
+
+			output = NumberToString(lhs - rhs);
+			return (output);
+		}
+	}
+	{	//// MULTIPLY ////
+		size_t found = mainstring.find('*');
+		if (found != string::npos) {
+			string LeftHandSide = mainstring.substr(0, found);
+			string RightHandSide = mainstring.substr(found + 1);
+
+			double lhs = atoi(LeftHandSide.c_str());
+			double rhs = atoi(RightHandSide.c_str());
+
+			output = NumberToString(lhs * rhs);
+			return (output);
+		}
+	}
+	{	//// DIVIDE ////
+		size_t found = mainstring.find('/');
+		if (found != string::npos) {
+			string LeftHandSide = mainstring.substr(0, found);
+			string RightHandSide = mainstring.substr(found + 1);
+
+			double lhs = atoi(LeftHandSide.c_str());
+			double rhs = atoi(RightHandSide.c_str());
+
+			output = NumberToString(lhs / rhs);
+			return (output);
+		}
+	}
+	return (0);
+}
+
+void calculator::zip() {
+	// TODO this should combine the temporary string with the main string
 }

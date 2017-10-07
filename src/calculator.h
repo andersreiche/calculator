@@ -10,12 +10,16 @@
 #include <string>
 #include <iostream>
 #include <boost/algorithm/string/erase.hpp>
+#include <sstream>
 using namespace std;
 
 class calculator {
+private:
+
 public:
 	////  Vars    ////
-	string input;		// main string to be working on
+	string input;		// The input string
+	string mainstring;	// main string to be working on
 	string temporary;	// snippets from the main string to be modified
 	bool SyntaxChecker; // should be set to true or false inside methods
 	////  Constructors  ////
@@ -23,8 +27,9 @@ public:
 	virtual ~calculator();
 
 	////  Methods  ////
-	void getinput();
-	int compute(string input);
+	bool getinput();
+	void zip();
+	void snip(string input);
 	string resolveOperator (string input);
 };
 

@@ -1,5 +1,3 @@
-src/main.o: ../src/main.cpp ../src/header.h ../src/calculator.h
-
-../src/header.h:
+src/main.o: ../src/main.cpp ../src/calculator.h
 
 ../src/calculator.h:
