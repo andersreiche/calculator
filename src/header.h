@@ -11,14 +11,6 @@
 #include <string>
 using namespace std;
 
-	string getinput();
-	int compute(string input);
-	string resolveOperator (string input);
-
-
-
-
-
 
 
 #endif /* HEADER_H_ */

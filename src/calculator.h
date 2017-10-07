@@ -9,13 +9,21 @@
 #define CALCULATOR_H_
 #include <string>
 #include <iostream>
+#include <boost/algorithm/string/erase.hpp>
 using namespace std;
 
 class calculator {
 public:
+	////  Vars    ////
+	string input;		// main string to be working on
+	string temporary;	// snippets from the main string to be modified
+	bool SyntaxChecker; // should be set to true or false inside methods
+	////  Constructors  ////
 	calculator();
 	virtual ~calculator();
-	string getinput();
+
+	////  Methods  ////
+	void getinput();
 	int compute(string input);
 	string resolveOperator (string input);
 };
