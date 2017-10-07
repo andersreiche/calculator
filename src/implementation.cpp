@@ -12,6 +12,8 @@
 
 	int compute(string input) {
 
+		// TODO this function should take a string with a single operator and two numbers and resolve them and return their value as a string
+
 		// Locate a + operator and identify the numbers on each side of it
 		size_t found = input.find('+');
 		if (found != string::npos) {
@@ -25,4 +27,11 @@
 			return (0);
 		}
 		return (-1);
+	}
+
+	string resolveOperator(string input) {
+		string output = "";
+		// TODO this function should take a string containing operators and numbers, then use PEMDAS rules to cut out a single operator surrounded by two numbers and return it
+
+		return (output);
 	}

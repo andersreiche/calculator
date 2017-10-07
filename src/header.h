@@ -13,6 +13,7 @@ using namespace std;
 
 	string getinput();
 	int compute(string input);
+	string resolveOperator (string input);
 
 
 
