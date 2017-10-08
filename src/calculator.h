@@ -30,7 +30,7 @@ public:
 	bool getinput();
 	void zip();
 	void snip(string input);
-	string resolveOperator (string input);
+	string resolveOperator ();
 };
 
 #endif /* CALCULATOR_H_ */

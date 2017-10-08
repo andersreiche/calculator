@@ -9,6 +9,7 @@ std::string NumberToString(T Number) {
 
 calculator::calculator() {
 	input = "";
+	mainstring = "";
 	temporary = "";
 	SyntaxChecker = true;
 
@@ -35,7 +36,6 @@ void calculator::snip(string mainstring) {
 		if (found != string::npos) {
 			string LeftHandSide = mainstring.substr(0, found);
 			string RightHandSide = mainstring.substr(found + 1);
-
 			double lhs = atof(LeftHandSide.c_str());
 			double rhs = atof(RightHandSide.c_str());
 
@@ -87,35 +87,9 @@ void calculator::snip(string mainstring) {
 	}
 }
 
-string calculator::resolveOperator(string mainstring) {
+string calculator::resolveOperator() {
 	string output = "";
 
-	{	//// ADD ////
-		size_t found = mainstring.find('+');
-		if (found != string::npos) {
-			string LeftHandSide = mainstring.substr(0, found);
-			string RightHandSide = mainstring.substr(found + 1);
-
-			double lhs = atof(LeftHandSide.c_str());
-			double rhs = atof(RightHandSide.c_str()); // TODO make all atof
-
-			output = NumberToString(lhs + rhs);
-			return (output);
-		}
-	}
-	{	//// SUBTRACT ////
-		size_t found = mainstring.find('-');
-		if (found != string::npos) {
-			string LeftHandSide = mainstring.substr(0, found);
-			string RightHandSide = mainstring.substr(found + 1);
-
-			double lhs = atof(LeftHandSide.c_str());
-			double rhs = atof(RightHandSide.c_str());
-
-			output = NumberToString(lhs - rhs);
-			return (output);
-		}
-	}
 	{	//// MULTIPLY ////
 		size_t found = mainstring.find('*');
 		if (found != string::npos) {
@@ -142,7 +116,33 @@ string calculator::resolveOperator(string mainstring) {
 			return (output);
 		}
 	}
-	return (0);
+	{	//// ADD ////
+		size_t found = mainstring.find('+');
+		if (found != string::npos) {
+			string LeftHandSide = mainstring.substr(0, found);
+			string RightHandSide = mainstring.substr(found + 1);
+
+			double lhs = atof(LeftHandSide.c_str());
+			double rhs = atof(RightHandSide.c_str());
+
+			output = NumberToString(lhs + rhs);
+			return (output);
+		}
+	}
+	{	//// SUBTRACT ////
+		size_t found = mainstring.find('-');
+		if (found != string::npos) {
+			string LeftHandSide = mainstring.substr(0, found);
+			string RightHandSide = mainstring.substr(found + 1);
+
+			double lhs = atof(LeftHandSide.c_str());
+			double rhs = atof(RightHandSide.c_str());
+
+			output = NumberToString(lhs - rhs);
+			return (output);
+		}
+	}
+	return ("Nothing to resolve");
 }
 
 void calculator::zip() {
