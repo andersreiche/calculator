@@ -29,8 +29,6 @@ bool calculator::getinput() {
 }
 
 void calculator::snip(string mainstring) {
-	// TODO this function should take a string containing operators and numbers, then use PEMDAS rules to cut out a single operator surrounded by two numbers and return it
-
 	//// MULTIPLY ////
 	{
 		size_t found = mainstring.find('*');
@@ -38,8 +36,8 @@ void calculator::snip(string mainstring) {
 			string LeftHandSide = mainstring.substr(0, found);
 			string RightHandSide = mainstring.substr(found + 1);
 
-			double lhs = atoi(LeftHandSide.c_str());
-			double rhs = atoi(RightHandSide.c_str());
+			double lhs = atof(LeftHandSide.c_str());
+			double rhs = atof(RightHandSide.c_str());
 
 			temporary = NumberToString(lhs * rhs);
 			return;
@@ -52,8 +50,8 @@ void calculator::snip(string mainstring) {
 			string LeftHandSide = mainstring.substr(0, found);
 			string RightHandSide = mainstring.substr(found + 1);
 
-			double lhs = atoi(LeftHandSide.c_str());
-			double rhs = atoi(RightHandSide.c_str());
+			double lhs = atof(LeftHandSide.c_str());
+			double rhs = atof(RightHandSide.c_str());
 
 			temporary = NumberToString(lhs / rhs);
 			return;
@@ -66,8 +64,8 @@ void calculator::snip(string mainstring) {
 			string LeftHandSide = mainstring.substr(0, found);
 			string RightHandSide = mainstring.substr(found + 1);
 
-			double lhs = atoi(LeftHandSide.c_str());
-			double rhs = atoi(RightHandSide.c_str());
+			double lhs = atof(LeftHandSide.c_str());
+			double rhs = atof(RightHandSide.c_str());
 
 			temporary = NumberToString(lhs + rhs);
 			return;
@@ -80,8 +78,8 @@ void calculator::snip(string mainstring) {
 			string LeftHandSide = mainstring.substr(0, found);
 			string RightHandSide = mainstring.substr(found + 1);
 
-			double lhs = atoi(LeftHandSide.c_str());
-			double rhs = atoi(RightHandSide.c_str());
+			double lhs = atof(LeftHandSide.c_str());
+			double rhs = atof(RightHandSide.c_str());
 
 			temporary = NumberToString(lhs - rhs);
 			return;
@@ -98,8 +96,8 @@ string calculator::resolveOperator(string mainstring) {
 			string LeftHandSide = mainstring.substr(0, found);
 			string RightHandSide = mainstring.substr(found + 1);
 
-			double lhs = atoi(LeftHandSide.c_str());
-			double rhs = atoi(RightHandSide.c_str());
+			double lhs = atof(LeftHandSide.c_str());
+			double rhs = atof(RightHandSide.c_str()); // TODO make all atof
 
 			output = NumberToString(lhs + rhs);
 			return (output);
@@ -111,8 +109,8 @@ string calculator::resolveOperator(string mainstring) {
 			string LeftHandSide = mainstring.substr(0, found);
 			string RightHandSide = mainstring.substr(found + 1);
 
-			double lhs = atoi(LeftHandSide.c_str());
-			double rhs = atoi(RightHandSide.c_str());
+			double lhs = atof(LeftHandSide.c_str());
+			double rhs = atof(RightHandSide.c_str());
 
 			output = NumberToString(lhs - rhs);
 			return (output);
@@ -124,8 +122,8 @@ string calculator::resolveOperator(string mainstring) {
 			string LeftHandSide = mainstring.substr(0, found);
 			string RightHandSide = mainstring.substr(found + 1);
 
-			double lhs = atoi(LeftHandSide.c_str());
-			double rhs = atoi(RightHandSide.c_str());
+			double lhs = atof(LeftHandSide.c_str());
+			double rhs = atof(RightHandSide.c_str());
 
 			output = NumberToString(lhs * rhs);
 			return (output);
@@ -137,8 +135,8 @@ string calculator::resolveOperator(string mainstring) {
 			string LeftHandSide = mainstring.substr(0, found);
 			string RightHandSide = mainstring.substr(found + 1);
 
-			double lhs = atoi(LeftHandSide.c_str());
-			double rhs = atoi(RightHandSide.c_str());
+			double lhs = atof(LeftHandSide.c_str());
+			double rhs = atof(RightHandSide.c_str());
 
 			output = NumberToString(lhs / rhs);
 			return (output);
